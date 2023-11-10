@@ -1,0 +1,101 @@
+
+/* header */
+header {
+  width: 100%;
+  text-align: center;
+  color: var(--fc-h);
+}
+
+.header-nav {
+  width: 80vw;
+  height: 50px;
+  background-color: var(--bgc-h);
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+.header-body {
+  width: 100%;
+}
+
+/* header logo */
+.h-logo {
+  width: 105px;
+  height: 50px;
+  text-align: center;
+  background-color: var(--bgc-logo);
+}
+
+.h-logo a {
+  font-family: 'Questrial','Helvetica Neue',Arial, sans-serif;
+  width: 105px;
+  height: 50px;
+  color: var(--logo);
+  display: block;
+  align-items: center;
+}
+
+#logo-img {
+  width: 50px;
+  height: 50px;
+}
+
+/* header nav */
+.h-nav-list-center ul {
+  width: 270px;
+  display: flex;
+}
+
+.h-nav-list-item {
+  width: 90px;
+  height: 50px;
+  text-align: center;
+  line-height: 49px;
+  text-transform: uppercase;
+}
+.h-nav-list-item a {
+  display: block;
+  color: var(--fc-h);
+  width: 100%;
+  height: 100%;
+  font-size: 17px;
+}
+.h-nav-list-item a:hover {
+  color: var(--fc-h-hover) !important;
+  /* transition-delay: 0.3s; */
+  transition-timing-function: ease-in;
+  transition-duration: 0.2s;
+}
+.h-nav-list-item a:active {
+  color: var(--fc-h-hover) !important;
+  /* transition-delay: 0.3s; */
+  transition-timing-function: ease-in;
+  transition-duration: 0.2s;
+}
+.h-nav-list-right {
+  width: 90px;
+  height: 50px;
+  margin-left: auto;
+}
+.h-nav-list ul {
+  display: flex;
+}
+
+.h-nav-list ul li { 
+  width: 80px;
+  height: 50px;
+}
+
+.h-nav-list:last-child {
+  margin-left:auto;
+}
+
+.h-nav-list-active {
+  color: var(--fc-h-hover) !important;
+  font-size: 1.2em !important;
+}
+
+/* header humberger */
+.barger-menu {
+ display: none;
+}

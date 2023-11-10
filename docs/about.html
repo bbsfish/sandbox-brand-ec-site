@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/com.css" />
+  <link rel="stylesheet" href="./css/about.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/header_mb.css" type="text/css" media="screen and (max-width: 768px)">
+  <link rel="stylesheet" href="./css/header_dt.css" type="text/css" media="screen and (min-width: 769px)">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+  <title>Rumble Official > About</title>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+</head>
+<body>
+  <!-- header -->
+  <!-- %#HEADER% -->
+  <header id="header">
+    <div class="header-nav">
+      <h1 class="h-logo"><a href="./index.html#header"><img src="./lib/testlogo.png" id="logo-img"></a></h1>
+      <nav class="h-nav-list h-nav-list-center"><ul>
+        <li class="h-nav-list-item"><a href="index.html#intro">intro</a></li>
+        <li class="h-nav-list-item"><a href="index.html#highlights">highlights</a></li>
+        <li class="h-nav-list-item"><a href="works.html">works</a></li>
+      </ul></nav>
+      <nav class="h-nav-list h-nav-list-right"><ul>
+        <li class="h-nav-list-item"><a href="about.html" class="h-nav-list-active">about</a></li>
+      </ul></nav>
+      <!-- barger menu -->
+      <div class="barger-menu">
+        <!-- barger btn -->
+        <label for="barger-menu-list" class="barger-menu-btn" id="barger-menu-btn"><span></span></label>
+        <!-- barger list -->
+        <div class="barger-menu-list" id="barger-menu-list"><ul>
+          <li class="h-nav-list-item"><a href="index.html#intro">intro</a></li>
+          <li class="h-nav-list-item"><a href="index.html#highlights">highlights</a></li>
+          <li class="h-nav-list-item"><a href="works.html">works</a></li>
+          <li class="h-nav-list-item"><a href="about.html" class="h-nav-list-active">about</a></li>
+        </ul></div>
+      </div>
+    </div>
+  </header>
+  <!-- %#HEADER_END% -->
+  <!-- main -->
+  <main>
+    <div class="m-header-hidden"></div>
+    <!-- #intro -->
+    <section class="m-sections">
+      <h2>ABOUT</h2>
+      <hr>
+      <div class="sub-sections">
+        <h3 class="sub-sections-header">Abstract</h3>
+        <hr class="sub-hr">
+        <!-- Developpers -->
+        <dl class="toggle_contents">
+          <dt class="toggle_title"><span class="toggle_btn">開く</span>
+            <span class="lang_ja">開発者</span>
+            <span class="lang_en">Developpers</span>
+          </dt>
+          <dd class="bordered">
+            <p>・Person 1</p>
+            <p>・Person 2</p>
+            <p>・Person 3</p>
+            <p>・Person 4</p>
+          </dd>
+        </dl>
+        <h3 class="sub-sections-header"><span class="lang_ja">Purchase</span><span class="lang_en">Purchase</span></h3>
+        <hr class="sub-hr">
+        <!-- Developpers -->
+        <dl class="toggle_contents">
+          <dt class="toggle_title"><span class="toggle_btn">開く</span>
+            <span class="lang_ja">購入方法</span>
+            <span class="lang_en">How to Buy</span>
+          </dt>
+          <dd class="bordered">
+            <span class="lang_ja">
+              <p>お取引には専用のフォームがございます。お手数ですが、各商品の［BUY］をクリックしていただき、フォームに必要な情報を入力して送信してください。</p>
+              <p>その際、商品IDにお間違いがないことをご確認ください。</p>
+              <p>専用フォームがご利用できない場合、送信できない場合、又は複数商品をご購入希望の場合は、［a.gerugeru@gmail.com］でのお取引も可能です。</p>
+            </span>
+            <span class="lang_en">
+              <p>There is a dedicated form for transactions. Please click on [BUY] for each product you are interested in, fill out the form, and submit it.</p>
+              <p>In doing so, please make sure that the product ID is correct.</p>
+              <p>If the dedicated form is not available or cannot be submitted, or if you wish to purchase more than one item, 
+                you may use an Email [a.gerugeru@gmail.com] for your transaction.</p>
+            </span>
+            <!-- <p><a href="mailto:a.gerugeru@gmail.com" target="_blank">［a.gerugeru@gmail.com］へのメールを作成する（お使いのメールアプリが起動します）※</a></p> -->
+          </dd>
+        </dl>
+      </div>
+      <div class="sub-sections">
+        <h3 class="sub-sections-header">Details</h3>
+        <hr class="sub-hr">
+        <!-- Contact Us -->
+        <dl class="toggle_contents">
+          <dt class="toggle_title" id="contactus"><span class="toggle_btn">開く</span>
+          <span class="lang_ja">お問い合わせ</span>
+          <span class="lang_en">Contact Us</span>
+          </dt>
+          <!-- post form: disabled -->
+          <!-- <dd>
+            <div class="form01 contact_us_form">
+              <form method="post" action="mail.php">
+              <ul class="formTable">
+                <li>
+                  <p class="title"><em>ご用件<span>必須</span></em></p>
+                  <div class="box_det"><select name="ご用件">
+                      <option selected disabled>選択してください</option>
+                      <option value="作品について">作品に関する問い合わせ</option>
+                      <option value="その他">その他の問い合わせ</option>
+                    </select></td>
+                </li>
+                <li>
+                  <p class="title"><em>お名前<span>必須</span></em></p>
+                  <div class="box_det"><input size="20" type="text" class="wide" name="お名前" /></div>
+                </li>
+                <li>
+                  <p class="title"><em>Email (半角)<span>必須</span></em></p>
+                  <div class="box_det"><input size="30" type="text" class="wide" name="Email" /></div>
+                </li>
+                <li>
+                  <p class="title"><em>電話番号 (半角)</em></p>
+                  <div class="box_det"><input size="30" type="text" class="wide" name="Email" /></div>
+                </li>
+                <li>
+                  <p class="title"><em>お問い合わせ内容</em></p>
+                  <div class="box_det"><textarea name="お問い合わせ内容" cols="50" rows="5"></textarea></div>
+                </li>
+              </ul>
+              <p class="btn">
+                  <span><input type="submit" value="確認" /></span>
+              </p>
+            </form>
+            </div>
+          </dd> -->
+          <!-- altitude contact method -->
+          <dd class="bordered">
+            <p>
+              <span class="lang_ja">ご意見・お問い合わせは、下記のフォーム又はメールアドレスまでお願いします。</span>
+              <span class="lang_en">
+                If you have any inquiries, opinions, or requests that you would like to make, 
+                please send the form to the following address.
+              </span>
+            </p>
+            <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSd3uGpSl4RPBeNgcB4MDRLOZBQlVqAQDilep4chUT-v1CZDAw/viewform?usp=sf_link" class="link">
+              <span class="lang_ja">問い合わせフォーム</span>
+              <span class="lang_en">
+                Link to Contuct Form
+              </span>
+            </a></p>
+            <p>Email:&nbsp;&nbsp;&nbsp;&nbsp;a.gerugeru@gmail.com</p>
+          </dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+  <!-- footer -->
+  <!-- %#FOOTER% -->
+<footer>
+  <nav class="f-nav-left">
+    <h4>Abstract</h4>
+    <ul class="f-list-unstyled">
+      <li><a rel="nofollow" href="about.html#developpers">Developper</a></li>
+    </ul>
+  </nav>
+  <nav class="f-nav-left">
+    <h4>Details</h4>
+    <ul class="f-list-unstyled">
+      <li><a rel="nofollow" href="about.html#contactus">Contact Us</a></li>
+    </ul>
+  </nav>
+  <nav class="f-nav-right">
+    <h4>Follow</h4>
+    <ul class="follow-me">
+      <li><a href="https://twitter.com/PANMry_official" id="twttr"></a></li>
+      <li><a href="https://www.instagram.com/panmry__/" id="insta"></a></li>
+      <li><a href="https://youtube.com/@geruzlife" id="youtube"></a></li>
+    </ul>
+  </nav>
+</footer>
+<!-- %#FOOTER_END% -->
+<div id="page_top"><a href="#header"></a></div>
+<script src="./js/main.js"></script>
+<script>
+  $(function(){
+    $('.toggle_title').click(function(){
+      $(this).toggleClass('selected');
+      $(this).next().slideToggle();
+    });
+  });
+</script>
+</body>
+</html>

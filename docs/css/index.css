@@ -1,0 +1,163 @@
+/* @import url(http://fonts.googleapis.com/css?family=Dancing+Script:700);
+@import url(https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap'); */
+:root {
+  --z-wallpaper_img: -1;
+  --i-fc-wallpaper: #ffffff;
+  --i-bc-wallpaper-hover: #FFCA00;
+}
+
+body {
+  width: 100%;
+  font-family: 'Ubuntu Condensed', sans-serif, cursive;
+  background-color: var(--bgc);
+  position: relative;
+  background-attachment: fixed;
+  background-image: url(../lib/wallpaper.jpg);
+  background-size: auto 1000px;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.m-header{
+  background-color: transparent;
+  text-align: center;
+  width: 100%;
+  z-index: var(--z-m_header);
+  /* height: 100vh; */
+}
+.m-header-wallpaper {
+  /* background-image: url("../lib/topwp.jpeg"); */
+  margin-left: auto;
+  margin-right: auto;
+  width: 70vw;
+  height: 70vw;
+  background-size: cover;
+  background-position: center;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+}
+
+.m-header-wallpaper h1{
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--i-fc-wallpaper);
+  padding-top: calc(35vw - 100px);
+  padding-bottom: 180px;
+  font-family: 'Dela Gothic One', cursive;
+}
+
+.m-header-wallpaper a {
+  font-size: 24px;
+  padding: 10px 20px;
+  border: 1px solid var(--i-fc-wallpaper);
+  color: var(--i-fc-wallpaper);
+  border-radius: 30px;
+  font-weight: 200;
+}
+
+@media only screen and (max-width: 768px) {
+  .m-header-wallpaper h1{
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    padding-top: calc(35vw - 50px);
+    padding-bottom: 40px;
+    font-family: 'Dela Gothic One', cursive;
+  }
+  
+  .m-header-wallpaper a {
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 1px solid black;
+    color: black;
+    border-radius: 30px;
+    font-weight: 200;
+  }
+}
+
+.m-header-wallpaper a:hover {
+  color: var(--i-fc-wallpaper);
+  border: 1px solid var(--i-bc-wallpaper-hover);
+  transition-timing-function: ease-in;
+  transition-duration: 0.2s;
+}
+
+.wallpaper-img {
+  z-index: var(--z-wallpaper_img);
+  width: 100%;
+  position: absolute;
+}
+
+/* section */
+section {
+  background-color: var(--m-bgcolor-1);
+  margin-bottom: 15px;
+}
+
+.m-sections h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  padding: 15px 0px;
+  color: var(--fc);
+}
+
+.description {
+  text-align: center;
+  font-size: 18px;
+  padding: 15px 0px;
+  color: var(--fc);
+}
+
+/* highlights img-list */
+.img-list {
+  display: inline-block;
+  height: 250px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: scroll;
+  text-align: center;
+  overflow-y: scroll;
+  -ms-overflow-style: none;    /* IE, Edge 対応 */
+  scrollbar-width: none;       /* Firefox 対応 */
+}
+.img-list::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+  display: none;
+}
+.img-list:hover {
+  -ms-overflow-style: auto;    /* IE, Edge 対応 */
+  scrollbar-width: auto;       /* Firefox 対応 */
+}
+.img-list::-webkit-scrollbar:hover {  /* Chrome, Safari 対応 */
+  display:auto;
+}
+.img-list a{
+  display: inline-block;
+  height: 210px;
+  width: 150px;
+  text-align: center;
+  margin:5px 5px;
+}
+.img-list p {
+  display: block;
+  height: 40px;
+  width: 150px;
+  padding: 0;
+  margin: 0 auto;
+  word-break:break-all;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+.img-list img {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.price::before { content: "\0a5"; margin-right: 5px; }
+.price::after { content: "-"; margin-left: 5px; }

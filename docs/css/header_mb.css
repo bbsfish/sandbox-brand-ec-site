@@ -1,0 +1,128 @@
+:root {
+  /* Barger Menu [bgmn] */
+  --bgc-bgmn: #eeeeee;
+  --barc-bgmn: #000000;
+
+  /* z-index */
+  --z-header_nav: 2000;
+  --z-h_logo: 5000;
+  --z-barger_menu_list: 1000;
+  --z-barger_menu_btn: 6000;
+}
+
+/* header */
+header {
+  width: 100%;
+  text-align: center;
+  color: var(--fc-h);
+}
+
+.header-nav {
+  width: 100%;
+  height: 50px;
+  background-color: var(--bgc-h);
+  position: fixed;
+  z-index: var(--z-header_nav);
+}
+
+.h-nav-list-active {
+  color: var(--fc-h-hover) !important;
+  /* font-size: 18px !important; */
+}
+
+.m-header-hidden {
+  height: 50px !important;
+}
+
+/* header logo */
+.h-logo {
+  width: 50px;
+  height: 50px;
+  background-color: var(--bgc-h);
+  position: absolute;
+  z-index: var(--z-h_logo);
+  background-color: var(--bgc-logo);
+  text-align: left;
+}
+.h-logo a {
+  font-family: 'Questrial','Helvetica Neue',Arial, sans-serif;
+  width: 50px;
+  height: 50px;
+  color: var(--logo);
+  position: relative;
+  display: block;
+}
+
+#logo-img {
+  width: 50px;
+  height: 50px;
+}
+
+
+/* header nav */
+.h-nav-list {
+  display: none;
+}
+
+/* header humberger */
+/* barger menu content */
+.barger-menu {
+  position: relative;
+}
+#barger-menu-list {
+  position: absolute;
+  z-index: var(--z-barger_menu_list);
+  top: -250px;
+  border-top: 1px solid var(--barc-bgmn);
+  background-color: var(--bgc-bgmn);
+  width: 100%;
+  transition: all 0.6s;
+}
+#barger-menu-list.panelactive {
+  top: 50px;
+}
+#barger-menu-list ul li, #barger-menu-list ul li a {
+  font-family: 'Questrial','Helvetica Neue',Arial, sans-serif;
+  text-transform: uppercase;
+  line-height: 40px;
+  display: block;
+  height: 40px;
+  text-align: left;
+  margin-left: 10px;
+  font-size: 14px;
+}
+#barger-menu-list ul li:last-child {
+  margin-top: 20px;
+}
+
+/* barger menu btn */
+#barger-menu-btn {
+  position: fixed;
+  z-index: var(--z-barger_menu_btn);
+  top: 4px;
+  right: 10px;
+  display: flex;
+  height: 40px;
+  width: 40px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bgc-bgmn);
+}
+#barger-menu-btn span,
+#barger-menu-btn span:before,
+#barger-menu-btn span:after {
+  position: fixed;
+  content: "";
+  display: block;
+  height: 4px;
+  width: 25px;
+  border-radius: 3px;
+  background-color: var(--barc-bgmn);
+  position: absolute;
+}
+#barger-menu-btn span:before {
+  bottom: 8px;
+}
+#barger-menu-btn span:after {
+  top: 8px;
+}

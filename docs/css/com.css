@@ -1,0 +1,295 @@
+@import url(http://fonts.googleapis.com/css?family=Dancing+Script:700);
+@import url(https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+
+:root {
+  /*
+    --type-place-supplement
+    <type>
+      fc=font color
+      bgc=background color
+      ac=accent color
+  */
+  --fc: #eeeeee; /* ベースフォント */
+  --fc-h: #000000; /* ヘッダーのフォント */
+  --fc-h-hover: #FF3E00; /* フォーカス時のヘッダーのフォント */
+  --bgc: #FF3E00; /* ページ全体の背景 */
+  --bgc-h: #eeeeee; /* ヘッダーの背景 */
+  --ac: #FF3E00; /* アクセントカラー */
+  --hrc: var(--bgc); /* セクションの間仕切り線 */
+  --subhrc: #000000; /* セクションの間仕切り線 */
+
+  --bgc-logo : #000000; /* ページ左上のロゴ背景 */
+  --bgc-wallpaper: #FF3E00;
+
+  /* ページトップへ戻るボタン[gotop] */
+  --bgc-gotop-base: var(--ac); /* 背景 */
+  --bgc-gotop-arrow: var(--fc); /* 矢印 */
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  font-size: 16px;
+  /* outline: 2px solid red; */
+}
+
+li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  list-style-type:none;
+  font-size: inherit;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  font-size: inherit;
+  color: inherit;
+}
+
+button{
+  /* button reset */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+
+body {
+  width: 100%;
+  font-family: 'Ubuntu Condensed', sans-serif, cursive;
+  background-color: var(--bgc);
+  position: relative;
+}
+
+.wrap {
+  overflow: hidden;
+}
+
+img {
+  width: 150px;
+}
+
+main {
+  min-height: 80vh;
+  background-color: transparent;
+}
+
+.invisible {  /* 非表示せってい */
+  display: none;
+}
+
+span {
+  font-size: inherit;
+  color: inherit;
+}
+
+/* footer */
+footer {
+  background-color: var(--bgc-h);
+  width: 100%;
+  max-width: 80vw;
+  height: 110px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 2px solid var(--ac);
+  padding-top: 10px;
+}
+
+
+
+@media(max-width: 768px) {
+  footer{
+    height: 150px;
+    position: relative;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+  }
+  footer nav:first-child(2){
+    position: absolute;
+    top: 0;
+  }
+  footer nav:nth-child(2){
+    position: absolute;
+    top: 70px;
+  }
+  footer nav:last-child {
+    display: block;
+    width: 40vw;
+    padding: 5px 10px;
+    float: right;
+  }
+}
+
+
+footer nav {
+  display: block;
+  float: left;
+  width: 7vw;
+  min-width: 80px;
+  padding: 5px 10px;
+}
+
+
+footer nav:last-child {
+  display: block;
+  width: 20vw;
+  min-width: 110px;
+  max-width: 200px;
+  position: absolute;
+  right: 20px;
+}
+
+
+footer h4 {
+  border-bottom: var(--fc-h) solid 1px;
+  font-size: 20px;
+  color: var(--h-nav-list-active);
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+
+footer.f-list-unstyled li a{
+  font-size: 15px;
+  color: var(--fc-h);
+}
+
+
+/* follow btn */
+.follow-me {
+  margin: 0 0 -8px;
+  overflow: hidden;
+  padding: 0;
+}
+.follow-me li {
+  float: left;
+  margin: 0 8px 8px 0;
+  padding: 0;
+}
+.follow-me li a::before {
+  background-color: #eee;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  color: #333;
+  display: inline-block;
+  font-family: 'FontAwesome';
+  font-size: 16px;
+  height: 44px; /* Button height */
+  line-height: 44px; /* Button height */
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  text-align: center;
+  width: 44px; /* Button width */
+}
+.follow-me li a:hover::before {
+  color: #fff;
+  background-color: rgb(83, 83, 83);
+}
+.follow-me li a[href*="twitter.com"]::before { content: "\f099"; }
+.follow-me li a[href*="instagram.com"]::before { content: "\f16d"; }
+.follow-me li a[href*="youtube.com"]::before { content: "\f16a"; }
+.follow-me li a[href$="/subscribe"]::before { content: "\f000"; font-family: blogicon; }
+
+/* hr */
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid var(--hrc);
+  border-bottom: 1px solid var(--hrc);
+  max-width: 120px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.sub-hr {
+  border: 0;
+  height: 0;
+  border-top: 1px dashed var(--subhrc);
+  border-bottom: 1px dashed var(--subhrc);
+  max-width: 100px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+/* 共通スタイル */
+
+/* Watch More */
+.more_btn {
+  width: 150px;
+  height: 30px;
+  font-size: 1.0em;
+  color: var(--fc);
+  /* background-color: red; */
+  text-align: center;
+  margin-left: calc((100% - 150px) / 2);
+  border: 1px solid;
+}
+
+/* 並び順番号（ランキングなど） */
+.order_panel {
+  position: relative;
+}
+.order_n {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0; 
+  font-size: 125%;
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+  line-height: 27px;
+  text-decoration: underline;
+}
+.lank1 { background-color: rgb(226, 214, 43); }
+.lank2 { background-color: rgb(129, 129, 129); }
+.lank3 { background-color: rgb(226, 141, 43); }
+.lankN { background-color: rgb(0, 0, 0); }
+
+
+/* PAGE TOP BTN */
+#page_top{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: calc(20vw / 2);
+  bottom: 15px;
+  background: var(--bgc-gotop-base);
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: var(--bgc-gotop-arrow);
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -5px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/com.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/header_mb.css" type="text/css" media="screen and (max-width: 768px)">
+  <link rel="stylesheet" href="./css/header_dt.css" type="text/css" media="screen and (min-width: 769px)">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+  <link rel="icon" href="favicon.png">
+  <script src="./js/rellax.min.js" defer></script>
+  <title>Rumble Official</title>
+  <script>
+    window.addEventListener("load", ()=>{
+      fetch(SRVURL+"/lib/goods.json")
+        .then( response => response.json())
+        .then( data => {
+        // New Arrivals
+          {
+            const div = document.getElementById("div_newarrival_img");
+            for (let i = data.length-1; i >= data.length - 4; i--) {
+              let a = document.createElement("a");
+              a.href = "./works.html";
+              a.innerHTML = `<img src="./goods/${data[i].file}"><p><span class="lang_ja">${data[i].desc}</span><span class="lang_en"></span></p><span class="price">${data[i].price.toLocaleString()}</span>`;
+              div.appendChild(a);
+            }
+          }
+
+        // Lanking
+          {
+            let lanking = data;
+            lanking.sort( (a,b) => {
+              return a.sold - b.sold
+            });
+            const div = document.getElementById("div_lanking_img");
+            let lankN = 1;
+            for (let i = lanking.length-1; i >= lanking.length - 4; i--) {
+              let a = document.createElement("a");
+              a.href = "./works.html";
+              a.className = "order_panel";
+              let span_class = (lankN<=3) ? "lank"+lankN : "lankN";
+              a.innerHTML = `<img src="./goods/${lanking[i].file}"><span class="order_n ${span_class}">${lankN}</span><p><span class="lang_ja">${lanking[i].desc}</span><span class="lang_en"></span></p><span class="price">${lanking[i].price.toLocaleString()}</span>`;
+              div.appendChild(a);
+              lankN++;
+            }
+          }
+        });
+    });
+  </script>
+</head>
+<body>
+  <!-- parallax contents -->
+  <!-- <img src="./lib/wallpaper.jpg" alt="our symbol image" id="wallpaper" class="wallpaper-img"> -->
+  <!-- header -->
+  <!-- %#HEADER% -->
+  <header id="header">
+    <div class="header-nav">
+      <!-- <h1 class="h-logo"><a href="#header"><span>Rumble</span></a></h1> -->
+      <h1 class="h-logo"><a href="#header"><img src="./lib/testlogo.png" id="logo-img"></a></h1>
+      <nav class="h-nav-list h-nav-list-center"><ul>
+        <li class="h-nav-list-item"><a href="#intro" class="h-nav-list-active">intro</a></li>
+        <li class="h-nav-list-item"><a href="#highlights">highlights</a></li>
+        <li class="h-nav-list-item"><a href="works.html">works</a></li>
+      </ul></nav>
+      <nav class="h-nav-list h-nav-list-right"><ul>
+        <li class="h-nav-list-item"><a href="about.html">about</a></li>
+      </ul></nav>
+      <!-- barger menu -->
+      <div class="barger-menu">
+        <!-- barger btn -->
+        <label for="barger-menu-list" class="barger-menu-btn" id="barger-menu-btn"><span></span></label>
+        <!-- barger list -->
+        <div class="barger-menu-list" id="barger-menu-list"><ul>
+          <li class="h-nav-list-item"><a href="#intro" class="h-nav-list-active">intro</a></li>
+          <li class="h-nav-list-item"><a href="#highlights">highlights</a></li>
+          <li class="h-nav-list-item"><a href="./works.html">works</a></li>
+          <li class="h-nav-list-item"><a href="./about.html">about</a></li>
+        </ul></div>
+      </div>
+    </div>
+  </header>
+  <!-- %#HEADER_END% -->
+  <!-- main -->
+  <main>
+    <div class="m-header">
+      <div class="m-header-wallpaper">
+        <h1>Make the world tremendous</h1>
+        <a href="#intro">Get Started</a>
+      </div>
+    </div>
+    <!-- #intro -->
+    <section class="m-sections" id="intro">
+      <h2>INTRODUCE</h2>
+      <hr>
+      <p class="description" id="desc01">introduce text</p>
+    </section>
+    <!-- #highlights -->
+    <section class="m-sections" id="highlights">
+      <h2>NEW ARRIVALS</h2>
+      <hr>
+      <div class="img-list" id="div_newarrival_img">
+      <!-- <a href="./works.html">
+        <img src="./goods/goods_001.jpg">
+        <p><span class="lang_ja">作品公開</span><span class="lang_en">Unveil works</span></p>
+        <time>2022.05.21</time>
+      </a> -->
+      </div>
+      <button type="button" id="readmore_elem" class="more_btn" onclick="location.href='./works.html?s=nwarvls'">Watch more</button>
+    </section>
+    <section class="m-sections" id="highlights">
+      <h2>LANKING</h2>
+      <hr>
+      <div class="img-list" id="div_lanking_img">
+      <!-- <a href="./works.html">
+        <img src="./goods/goods_001.jpg">
+        <p><span class="lang_ja">作品公開</span><span class="lang_en">Unveil works</span></p>
+        <time>2022.05.21</time>
+      </a> -->
+      </div>
+      <button type="button" id="readmore_elem" class="more_btn" onclick="location.href='./works.html?s=lanking'">Watch more</button>
+    </section>
+  </main>
+  <!-- footer -->
+  <!-- %#FOOTER% -->
+<footer>
+  <div class="footer-contents">
+    <nav class="f-nav-left">
+      <h4>Abstract</h4>
+      <ul class="f-list-unstyled">
+        <li><a rel="nofollow" href="about.html#developpers">Developper</a></li>
+      </ul>
+    </nav>
+    <nav class="f-nav-left">
+      <h4>Details</h4>
+      <ul class="f-list-unstyled">
+        <li><a rel="nofollow" href="about.html#contactus">Contact Us</a></li>
+      </ul>
+    </nav>
+    <nav class="f-nav-right">
+      <h4>Follow</h4>
+      <ul class="follow-me">
+        <li><a href="https://twitter.com/PANMry_official" id="twttr"></a></li>
+        <li><a href="https://www.instagram.com/panmry__/" id="insta"></a></li>
+        <li><a href="https://youtube.com/@geruzlife" id="youtube"></a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+<!-- %#FOOTER_END% -->
+<div id="page_top"><a href="#header"></a></div>
+<script src="./js/main.js"></script>
+<script src="./lib/load.js"></script>
+<script src="./js/parallax.js"></script>
+</body>
+</html>

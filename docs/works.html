@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/com.css" />
+  <link rel="stylesheet" href="./css/works.css" />
+  <link rel="stylesheet" href="./css/header_mb.css" type="text/css" media="screen and (max-width: 768px)">
+  <link rel="stylesheet" href="./css/header_dt.css" type="text/css" media="screen and (min-width: 769px)">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+  <title>Rumble Official > Works</title>
+  <script>
+    const offset = 6;
+    window.addEventListener("load", ()=>{
+      fetch(SRVURL+"/lib/goods.json")
+        .then( response => response.json())
+        .then( data => {
+        // New Arrivals
+          {
+            const sortby = getprm("s");
+            if (sortby=="lanking") { data.sort(function(f, s){ return f.sold - s.sold; }); }
+            let lankN = 0;
+            for (let i = data.length-1; i >= data.length - offset; i--) {
+              if (sortby=="lanking") { lankN++; }
+              append_goods_html(data[i].file, data[i].desc, data[i].price.toLocaleString(), data[i].orderform, lankN);
+            }
+            sessionStorage.setItem("ln", lankN); // lank number 標示中のランキング順位を保管
+          }
+        });
+      sessionStorage.setItem("v", 1); // 標示中商品のブロックナンバー (data.length / offset)*vが標示中の商品個数
+    });
+    function load_more() {
+      let v = Number(sessionStorage.getItem("v"));
+      fetch(SRVURL+"/lib/goods.json")
+        .then( response => response.json())
+        .then( data => {
+        // New Arrivals
+          {
+            const sortby = getprm("s");
+            const div = document.getElementById("div_goods_list");
+            // let b = Math.ceil(data.length / offset);
+            let s = data.length - 1 - (offset * v);
+            let lankN = Number(sessionStorage.getItem("ln"));
+            for (let i = s; i > s - offset; i--) {
+              if (sortby=="lanking") { lankN++; }
+              append_goods_html(data[i].file, data[i].desc, data[i].price.toLocaleString(), data[i].orderform, lankN);
+            }
+            sessionStorage.setItem("ln", lankN);
+            // console.log(
+            //   data.length,
+            //   Math.ceil(data.length / offset),
+            //   data.length%offset
+            // );
+            if (v+1==Math.ceil(data.length / offset)&&data.length%offset==1) {
+              append_goods_html("goods_000.jpg", "Don't miss it.", "0", "", 0);
+            }
+            if (v+1==Math.ceil(data.length / offset)) {
+              const e = document.getElementById("readmore_elem");
+              e.style.display = "none";
+            }
+          }
+        });
+      sessionStorage.setItem("v", v+1);
+    }
+    function append_goods_html(file, desc, price, buylink, order_n = 0) {
+      const div = document.getElementById("div_goods_list");
+      let li = document.createElement("li");
+      if (order_n==0) {
+        li.href = "./works.html";
+        li.innerHTML = `<a class="goods_link"><img src="./goods/${file}"></a>
+          <p>
+            <span class="desc">${desc}</span>
+            <span class="price">${price}</span>
+            <a class="buy" href="${buylink}" target="_blank">BUY</a>
+          </p>`;
+      } else {
+        let span_class = (order_n<=3) ? "lank"+order_n : "lankN";
+        li.href = "./works.html";
+        li.innerHTML = `<a class="order_panel goods_link"><img src="./goods/${file}"><span class="order_n ${span_class}">${order_n}</span></a>
+          <p>
+            <span class="desc">${desc}</span>
+            <span class="price">${price}</span>
+            <a class="buy" href="${buylink}" target="_blank">BUY</a>
+          </p>`;
+      }
+      div.appendChild(li);
+    }
+  </script>
+</head>
+
+<body>
+  <!-- header -->
+  <!-- %#HEADER% -->
+  <header id="header">
+    <div class="header-nav">
+      <h1 class="h-logo"><a href="./index.html#header"><img src="./lib/testlogo.png" id="logo-img"></a></h1>
+      <nav class="h-nav-list h-nav-list-center">
+        <ul>
+          <li class="h-nav-list-item"><a href="index.html#intro">intro</a></li>
+          <li class="h-nav-list-item"><a href="index.html#highlights">highlights</a></li>
+          <li class="h-nav-list-item"><a href="works.html" class="h-nav-list-active">works</a></li>
+        </ul>
+      </nav>
+      <nav class="h-nav-list h-nav-list-right">
+        <ul>
+          <li class="h-nav-list-item"><a href="about.html">about</a></li>
+        </ul>
+      </nav>
+      <!-- barger menu -->
+      <div class="barger-menu">
+        <!-- barger btn -->
+        <label for="barger-menu-list" class="barger-menu-btn" id="barger-menu-btn"><span></span></label>
+        <!-- barger list -->
+        <div class="barger-menu-list" id="barger-menu-list">
+          <ul>
+            <li class="h-nav-list-item"><a href="index.html#intro">intro</a></li>
+            <li class="h-nav-list-item"><a href="index.html#highlights">highlights</a></li>
+            <li class="h-nav-list-item"><a href="works.html" class="h-nav-list-active">works</a></li>
+            <li class="h-nav-list-item"><a href="about.html">about</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- %#HEADER_END% -->
+  <!-- main -->
+  <main>
+    <!-- #intro -->
+    <div class="m-header-hidden"></div>
+    <section class="m-sections">
+      <h2>WORKS</h2>
+      <hr>
+      <div class="img-gallery" id="div_goods_list">
+        <script>
+        </script>
+      </div>
+      <button type="button" id="readmore_elem" class="more_btn" onclick="load_more()">Watch more</button>
+    </section>
+  </main>
+  <!-- footer -->
+  <!-- %#FOOTER% -->
+<footer>
+  <nav class="f-nav-left">
+    <h4>Abstract</h4>
+    <ul class="f-list-unstyled">
+      <li><a rel="nofollow" href="about.html#developpers">Developper</a></li>
+    </ul>
+  </nav>
+  <nav class="f-nav-left">
+    <h4>Details</h4>
+    <ul class="f-list-unstyled">
+      <li><a rel="nofollow" href="about.html#contactus">Contact Us</a></li>
+    </ul>
+  </nav>
+  <nav class="f-nav-right">
+    <h4>Follow</h4>
+    <ul class="follow-me">
+      <li><a href="https://twitter.com/PANMry_official" id="twttr"></a></li>
+      <li><a href="https://www.instagram.com/panmry__/" id="insta"></a></li>
+      <li><a href="https://youtube.com/@geruzlife" id="youtube"></a></li>
+    </ul>
+  </nav>
+</footer>
+<!-- %#FOOTER_END% -->
+<div id="page_top"><a href="#header"></a></div>
+<script src="./js/main.js"></script>
+</body>
+</html>
