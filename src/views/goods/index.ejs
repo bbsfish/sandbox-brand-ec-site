@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <%- include("../_head.ejs") %>
+
+  <style>
+    :root {
+      /*
+        --docId-type-place-supplement
+        <docId> w
+        <Type>
+          brdrc=border color
+      */
+      --w-brdrc-ctt: var(--fc); /* 商品リストの外枠線 */
+      --w-bgc: var(--bgc); /* セクション（ページ全体）の背景 */
+      --w-bgc-ctt: rgb(148, 148, 148); /* 商品リストの背景 */
+      --w-fc: var(--fc); /* 商品リストの説明文フォント */
+      --w-fc-h2: var(--ac); /* セクションタイトル */
+      --w-fc-buybtn: var(--ac); /* BUYボタンフォント */
+      --w-bgc-buybtn: var(--fc); /* BUYボタン背景 */
+    }
+    
+    .img-gallery {
+      padding-bottom: 16px;
+    }
+
+    .img-gallery p {
+      background-color: black;
+      font-size: 1.7rem;
+    }
+
+    /* Mobile */
+    @media(max-width: 768px) {
+      .img-gallery li {
+        border: 1px var(--w-brdrc-ctt) solid;
+        border-radius: 5px;
+        margin: 15px;
+        padding: 5px;
+      }
+
+      .img-gallery img {
+        height: 100%;
+        width: auto !important;
+        max-width: calc(100vw - 40px);
+        max-height: 260px;
+      }
+
+      .goods_link {
+        display: block;
+        height: 260px;
+        text-align: center;
+        background-color: var(--w-bgc-ctt);
+      }
+
+      .img-gallery p {
+        max-height: 250px;
+        max-width: 400px;
+        padding: 5px 25px;
+        color: var(--w-fc);
+        font-size: 1.2em;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 80px;
+      }
+    }
+
+    /* Desktop */
+    @media(min-width: 769px) {
+      .img-gallery {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .img-gallery li {
+        display: flex;
+        width: 700px;
+        height: 300px;
+        border: 1px var(--w-brdrc-ctt) solid;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .img-gallery img {
+        height: 100% !important;
+        width: auto !important;
+        max-width: 350px !important;
+      }
+
+      .goods_link {
+        display: block;
+        height: 300px;
+        width: 500px;
+        text-align: center;
+        background-color: var(--w-bgc-ctt);
+        border-radius: 5px;
+      }
+
+      .img-gallery p {
+        display: inline;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 200px;
+        color: var(--w-fc);
+        padding-left: 10px;
+        float: left;
+      }
+    }
+
+    /* span */
+    #div_goods_list * span {
+      display: block;
+    }
+
+    #div_goods_list li {
+      position: relative;
+    }
+
+    .price::before {
+      content: "\0a5";
+      margin-right: 5px;
+    }
+
+    .price::after {
+      content: "-";
+      margin-left: 5px;
+    }
+
+    .buy {
+      border: 0px;
+      border-radius: 5px;
+      background-color: var(--w-bgc-buybtn);
+      display: inline-block;
+      text-align: center;
+      width: 100px;
+      height: 30px;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      line-height: 30px;
+      color: var(--w-fc-buybtn);
+    }
+  </style>
+
+</head>
+
+<body>
+  <header id="header">
+    <%- include("../_header.ejs", {ActivateTab: 2}) %>
+  </header>
+  <main>
+    <div class="m-header-hidden"></div>
+    <section class="m-sections">
+      <h2>GOODS</h2>
+      <hr>
+      <div class="img-gallery" id="div_goods_list">
+        <template id="goods-list-template">
+          <li>
+            <a class="goods_link" href=""><img class="goods_image" src=""></a>
+            <p>
+              <span class="desc"></span>
+              <span class="price"></span>
+              <a class="buy" href="" target="_blank">BUY</a>
+            </p>
+          </li>
+        </template>
+      </div>
+      <button type="button" id="readmore_elem" class="more_btn" onclick="doWatchMore();">Watch more</button>
+    </section>
+  </main>
+  
+  <footer id="footer">
+    <%- include("../_footer.ejs") %>
+  </footer>
+
+  <div id="page_top"><a href="#header"></a></div>
+
+  <script src="/js/main.js"></script>
+
+  <script>
+    let page = 0;
+    const doWatchMore = function () {
+      getItems(++page);
+    }
+
+    doWatchMore();
+
+    function getItems(page) {
+      fetch("/goods/items/" + page, { method: 'GET' })
+      .then(res => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
+      .then(dataArray => {
+        console.log("/goods/items/" + page);
+        console.log(dataArray);
+
+        if (dataArray.length < 20) document.getElementById("readmore_elem").style.display = "none";
+
+        const div = document.getElementById("div_goods_list");
+        const template = document.getElementById("goods-list-template")
+        dataArray.forEach(object => {
+          const content = template.content.cloneNode(true);
+          content.querySelector(".goods_link").href = `/goods/view/${object.id}`;
+          content.querySelector(".goods_image").src = `/goods/${object.file}`;
+          content.querySelector(".desc").innerText = object.description;
+          content.querySelector(".price").innerText = object.price;
+          content.querySelector(".buy").href = `/purchase/${object.id}`;
+          div.appendChild(content);
+        });
+      })
+    }
+  </script>
+
+</body>
+
+</html>

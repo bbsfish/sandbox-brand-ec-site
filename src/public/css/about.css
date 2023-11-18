@@ -1,0 +1,297 @@
+:root {
+  /*
+    --docId-type-place-supplement
+    <docId> a
+    <Type>
+      hrc=hr color
+  */
+  --a-brdrc: var(--fc-h); /* 各項目のペインリストの外枠 */
+  --a-hrc: var(--ac); /* セクションの間仕切り線 */
+  --a-fc: var(--fc); /* 各項目の内部テキストフォント */
+  --a-fc-h2: var(--fc-h); /* 大（セクション）タイトルフォント */
+  --a-fc-h3: var(--fc-h); /* 中タイトルフォント */
+  --a-fc-toggle: var(--fc); /* 小タイトルフォント */
+
+  /* forms */
+  --f-bgc: rgb(148, 148, 148);
+  --f-title: var(--fc);
+  --f-bgc-title: rgb(126, 126, 126);
+  --f-bgc-required: var(--ac);
+  --f-fc-required: rgb(202, 202, 202);
+  --f-parts1-bgc: rgb(202, 202, 202);
+}
+/* section */
+section {
+  background-color: var(--m-bgcolor-1);
+}
+
+.m-sections h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  padding: 15px 0px;
+  color: var(--a-fc-h2);
+}
+
+.sub-sections h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  padding-bottom: 4px;
+  color: var(--a-fc-h3);
+}
+
+.toggle_contents {
+	/* border-bottom: 1px solid rgb(77, 43, 111); */
+  width: 100%;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 15px;
+}
+.toggle_title {
+	position: relative;
+	padding: 5px 0px;
+	cursor: pointer;
+	font-size: 19px;
+	text-align: center;
+  color: var(--a-fc-toggle);
+}
+
+.toggle_btn {
+	position: absolute;
+	top: 50%;
+	left: calc(50% - 80px);
+	transform: translateY(-50%);
+	display: block;
+	width: 24px;
+	height: 24px;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	border-radius: 50%;
+}
+.toggle_btn:before, .toggle_btn:after {
+	display: block;
+	content: '';
+	/* background-color: rgb(202, 202, 202); */
+	position: absolute;
+	width: 10px;
+	height: 2px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.toggle_btn:before {
+	width: 2px;
+	height: 10px;
+}
+.toggle_title.selected .toggle_btn:before {
+	content: normal;
+}
+.toggle_contents dd {
+	display: none;
+}
+
+.toggle_contents dl {
+	display: none;
+  margin-bottom: 15px;
+}
+
+.toggle_contents p {
+  color: var(--a-fc);
+  font-size: 1.2em;
+}
+
+.bordered {
+  border: 1px solid var(--a-brdrc);
+  border-radius: 5px;
+  padding: 15px;
+}
+
+/* form css (source: https://www.legit.co.jp/contact_css/17931) */
+em{
+  font-style:normal;
+}
+.form01 {
+  margin: 0  auto;
+}
+@media only screen and (max-width: 768px) {
+  .form01 {
+    width: 95%;
+  }
+}
+.form01 form {
+  width: 100%;
+}
+.form01 form ul {
+  width: 100%;
+  background: var(--f-bgc);
+}
+.form01 form ul li {
+  position: relative;
+  overflow: hidden;
+  margin: .5em 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media only screen and (min-width: 769px) {
+  .form01 form ul li {
+    display: -webkit-flex;
+    display: flex;
+  }
+}
+@media print {
+  .form01 form ul li {
+    display: -webkit-flex;
+    display: flex;
+  }
+}
+.ie8 .form01 form ul li {
+  display: -webkit-flex;
+  display: flex;
+}
+.form01 form ul li .title {
+  position: relative;
+  width: 30%;
+  font-weight: normal;
+  padding: 1em;
+  position: relative;
+  color: var(--f-title);
+}
+@media only screen and (min-width: 769px) {
+  .form01 form ul li .title {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+}
+@media print {
+  .form01 form ul li .title {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+}
+.ie8 .form01 form ul li .title {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+@media only screen and (max-width: 768px) {
+  .form01 form ul li .title {
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding: .8em .05em;
+    color: var(--f-title);
+    background: var(--f-bgc-title);
+  }
+}
+.form01 form ul li .title em {
+  position: relative;
+  z-index: 1;
+  font-size: 0.8em;
+}
+.form01 form ul li .title span {
+  background: var(--f-bgc-required);
+  padding: 0 .3em;
+  color: var(--f-fc-required);
+  margin-left: .5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 1.1em;
+}
+.form01 form ul li .box_det {
+  width: 70%;
+  position: relative;
+  padding: 1em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 768px) {
+  .form01 form ul li .box_det {
+    padding: 1.5em .5em;
+    display: block;
+    width: 100%;
+  }
+}
+.form01 form ul li .box_br {
+  display: block;
+}
+.form01 form ul li select, .form01 form ul li textarea, .form01 form ul li .wide {
+  width: 100%;
+  height: 2em;
+  padding: .3em;
+  font-size: 0.8em;
+  border: none;
+  outline: none;
+  background: transparent;
+  background: var(--f-parts1-bgc);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form01 form ul li textarea {
+  height: 5em;
+}
+
+.btn {
+  text-align: center;
+}
+.btn input {
+  display: inline-block;
+  background: var(--f-parts1-bgc);
+  padding: .5em 4em;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.btn input:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+}
+
+/* aタグ強調 */
+
+.link {
+  position: relative;
+  display: inline-block;
+  padding-left: 22px;
+  color: #333;
+  text-decoration: none;
+}
+.link:before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  background: var(--ac);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -9px;
+}
+.link:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 4px 0 4px 6px;
+  border-color: transparent transparent transparent #fff;
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  margin-top: -4px;
+}

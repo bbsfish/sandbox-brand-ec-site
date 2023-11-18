@@ -1,0 +1,115 @@
+/*  */
+:root {
+  --header-height: 50px;
+  --header-logo-width: 50px;
+}
+
+.header-menu {
+  display: none;
+}
+
+.header-body {
+  height: 50px;
+  position: relative;
+}
+
+/* Header */
+.header-mb-menu {
+  position: relative;
+  height: var(--header-height);
+  width: 100%;
+  background: white url(/img/testlogo.png) no-repeat center top;
+}
+
+.header-mb-marginspace {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: var(--header-height);
+  width: calc(100% - var(--header-logo-width));
+  background-color: white;
+  z-index: 1000;
+}
+
+
+/* Header Logo  */
+.header-logo {
+  width: var(--header-logo-width);
+  height: var(--header-height);
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header-logo > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url(/img/testlogo.png); /* Logo Image */
+  background-position: center;
+  background-size: cover;
+  z-index: 1000;
+}
+
+/* Header Barger Menu */
+/* Barger Menu > btn */
+#barger-menu-btn {
+  position: absolute;
+  top: 4px;
+  right: 10px;
+  display: flex;
+  height: 40px;
+  width: 40px;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  z-index: 1000;
+}
+#barger-menu-btn span,
+#barger-menu-btn span:before,
+#barger-menu-btn span:after {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 4px;
+  width: 25px;
+  border-radius: 3px;
+  background-color: black;
+  position: absolute;
+  z-index: 2;
+}
+#barger-menu-btn span:before {
+  bottom: 8px;
+}
+#barger-menu-btn span:after {
+  top: 8px;
+}
+
+/* Barger Menu > List */
+#barger-menu-list {
+  position: absolute;
+  z-index: 1;
+  top: -250px;
+  border-top: 1px solid white;
+  background-color: white;
+  width: 100%;
+  transition: all 0.6s;
+}
+#barger-menu-list.panelactive {
+  top: 50px;
+}
+#barger-menu-list ul li, #barger-menu-list ul li a {
+  font-family: 'Questrial','Helvetica Neue',Arial, sans-serif;
+  text-transform: uppercase;
+  line-height: 40px;
+  display: block;
+  height: 40px;
+  text-align: left;
+  margin-left: 10px;
+  font-size: 14px;
+}
+#barger-menu-list ul li:last-child {
+  margin-top: 20px;
+}

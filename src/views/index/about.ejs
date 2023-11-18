@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/com.css" />
-  <link rel="stylesheet" href="./css/about.css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/header_mb.css" type="text/css" media="screen and (max-width: 768px)">
-  <link rel="stylesheet" href="./css/header_dt.css" type="text/css" media="screen and (min-width: 769px)">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
-  <title>Rumble Official > About</title>
-  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <%- include("_head.ejs") %>
 </head>
+
 <body>
-  <header id="header"></header>
+<header id="header">
+  <%- include("_header.ejs", {ActivateTab: 3}) %>
+</header>
   <main>
     <div class="m-header-hidden"></div>
     <!-- #intro -->
@@ -127,12 +121,9 @@
       </div>
     </section>
   </main>
-  <!-- footer -->
-  <!-- %#FOOTER% -->
-<footer id="footer"></footer>
-<!-- %#FOOTER_END% -->
-<div id="page_top"><a href="#header"></a></div>
-<script src="./js/main.js"></script>
+  <footer id="footer">
+    <%- include("_footer.ejs") %>
+  </footer>
 <script>
   $(function(){
     $('.toggle_title').click(function(){
@@ -141,5 +132,10 @@
     });
   });
 </script>
+
+<div id="page_top"><a href="#header"></a></div>
+<script src="/js/main.js"></script>
+
 </body>
+
 </html>

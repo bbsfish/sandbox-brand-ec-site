@@ -10,21 +10,6 @@ console.log(SRVURL);
     console.log(userlang);
     setUseLang(userlang);
 }
-document.addEventListener("DOMContentLoaded", () => {
-    fetch("/includes/header.html")
-    .then(response => response.text())
-    .then(text => {
-        document.querySelector("#header").insertAdjacentHTML("afterbegin", text);
-    })
-    .catch(error => console.error(error));
-
-    fetch("/includes/footer.html")
-    .then(response => response.text())
-    .then(text => {
-        document.querySelector("#footer").insertAdjacentHTML("afterbegin", text);
-    })
-    .catch(error => console.error(error));
-});
 
 // 言語設定
 function setUseLang(lang) {

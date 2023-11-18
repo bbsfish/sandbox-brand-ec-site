@@ -1,0 +1,55 @@
+<div class="header-body">
+    <div class="header-logo">
+        <a href="/#header" class="header-logo-link"></a>
+    </div>
+    <div class="header-menu">
+        <nav class="header-menu-dynamic">
+            <ul>
+                <li class="h-nav-list-item"><a href="/#intro">intro</a></li>
+                <li class="h-nav-list-item"><a href="/#highlights">highlights</a></li>
+                <li class="h-nav-list-item" id="header-nav-goods">
+                    <a href="/goods">goods</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="header-menu-static">
+            <ul>
+                <li class="h-nav-list-item"><a href="/about">about</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="header-mb-menu">
+        <div class="header-mb-marginspace"></div>
+        <!-- barger btn -->
+        <label for="barger-menu-list" class="barger-menu-btn" id="barger-menu-btn"><span></span></label>
+        <!-- barger list -->
+        <div class="barger-menu-list" id="barger-menu-list">
+            <ul>
+                <li class="h-nav-list-item"><a href="/#intro">intro</a></li>
+                <li class="h-nav-list-item"><a href="/#highlights">highlights</a></li>
+                <li class="h-nav-list-item"><a href="/goods">goods</a></li>
+                <li class="h-nav-list-item"><a href="/about">about</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    {
+      const ActiveTab = <%- ActivateTab %>;
+  
+      console.log("Activate Tab: ", ActiveTab);
+      const hNavItems = document.querySelectorAll(".h-nav-list-item");
+      const halfItemLength = hNavItems.length / 2;
+      const navItemsNumSeparatedByDevice = halfItemLength;
+  
+      // Activate Tab for PC Navigation
+      for (let i = 0; i < halfItemLength; i++) {
+        if (i == ActiveTab) hNavItems[i].children[0].classList.add("h-nav-list-active");
+      }
+  
+      // Activate Tab for SP Navigation
+      for (let i = halfItemLength; i < hNavItems.length; i++) {
+        if (i%halfItemLength == ActiveTab) hNavItems[i].children[0].classList.add("h-nav-list-active");
+      }
+    }
+</script>
